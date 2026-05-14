@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -63,13 +63,17 @@ export function Sidebar({ onClose, collapsed = false, onToggleCollapse }: Sideba
 
   const [search, setSearch] = useState("");
 
-  const recentSlugs = useMemo(() => {
+  const [recentSlugs, setRecentSlugs] = useState<string[]>([]);
+
+  useEffect(() => {
     try {
-      return (JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[]).slice(0, 4);
+      setRecentSlugs(
+        (JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[]).slice(0, 4)
+      );
     } catch {
-      return [];
+      setRecentSlugs([]);
     }
-  // re-read whenever the user navigates (pathname changes trigger localStorage refresh)
+  // re-read whenever the user navigates
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 

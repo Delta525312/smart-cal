@@ -140,8 +140,8 @@ export function HomeContent() {
       <section id="calculators" className="px-4 py-14">
         <FadeInUp>
           <div className="mb-8">
-            <h2 className="text-3xl font-extrabold tracking-tight mb-1.5">{t("all_tools")}</h2>
-            <div className="w-10 h-1 rounded-full bg-blue-500" />
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-(--muted-foreground) mb-2">{t("all_tools")}</p>
+            <h2 className="text-3xl font-black tracking-tight text-foreground">{t("all_tools")}</h2>
           </div>
         </FadeInUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -178,10 +178,11 @@ export function HomeContent() {
       </section>
 
       {/* ══════════════════════ WHY D-CALC ══════════════════════ */}
-      <section className="px-4 py-14">
+      <section className="px-4 py-14 bg-(--muted)/40 rounded-3xl">
         <FadeInUp className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold tracking-tight mb-2">{t("why_title")}</h2>
-          <p className="text-base text-(--muted-foreground) max-w-sm mx-auto">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-(--muted-foreground) mb-2">{t("why_title")}</p>
+          <h2 className="text-3xl font-black tracking-tight text-foreground mb-2">{t("why_title")}</h2>
+          <p className="text-sm text-(--muted-foreground) max-w-sm mx-auto">
             {t("why_subtitle")}
           </p>
         </FadeInUp>
@@ -217,10 +218,10 @@ export function HomeContent() {
       <section className="px-4 pt-4 pb-16">
         <FadeInUp>
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-extrabold tracking-tight mb-2">
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-(--muted-foreground) mb-2">{t("faq_title")}</p>
+            <h2 className="text-3xl font-black tracking-tight text-foreground">
               {t("faq_title")}
             </h2>
-            <div className="w-10 h-1 rounded-full bg-blue-500 mx-auto" />
           </div>
         </FadeInUp>
         <div className="space-y-2">

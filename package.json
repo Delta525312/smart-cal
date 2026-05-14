@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack && next-sitemap",
+    "build": "next build --webpack && NEXT_PUBLIC_SITE_URL=https://www.dcalcs.com next-sitemap",
     "start": "next start",
     "lint": "eslint"
   },

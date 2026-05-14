@@ -20,11 +20,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: "message_too_long" }, { status: 400 });
     }
 
+    if (topic.length > 200) {
+      return NextResponse.json({ ok: false, error: "invalid_input" }, { status: 400 });
+    }
+
+    const allowedLocales = ["th", "en"];
+    const safeLocale = allowedLocales.includes(locale) ? locale : "th";
+
     const supabase = getSupabaseAdmin();
     const { error } = await supabase.from("contact_messages").insert({
-      topic: topic.trim(),
+      topic: topic.trim().slice(0, 200),
       message: message.trim(),
-      locale: locale ?? "th",
+      locale: safeLocale,
     });
 
     if (error) throw error;

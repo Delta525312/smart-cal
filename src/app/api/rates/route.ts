@@ -1,8 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { isRateLimited, getClientIp } from "@/lib/rateLimit";
 
 // Fetches live rates from frankfurter.app (free, no API key, open-source)
 // Revalidates every hour via Next.js fetch cache
-export async function GET() {
+export async function GET(req: NextRequest) {
+  // 20 requests per minute per IP
+  if (isRateLimited(getClientIp(req), 20, 60_000)) {
+    return NextResponse.json({ error: "rate_limited" }, { status: 429 });
+  }
   try {
     const res = await fetch("https://api.frankfurter.dev/v1/latest?base=USD", {
       next: { revalidate: 3600 }, // cache 1 hour

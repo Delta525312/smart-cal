@@ -148,7 +148,7 @@ export function HomeContent() {
               <FadeInUp key={calc.slug} delay={Math.min(i * 35, 280)}>
                 <Link
                   href={`/${calc.slug}`}
-                  className="card-glow group flex items-center gap-4 bg-(--card) border border-(--border) rounded-2xl p-4 transition-all duration-200 hover:-translate-y-0.5 w-full"
+                  className="group flex items-center gap-4 bg-(--card) border border-(--border) rounded-2xl p-4 transition-all duration-200 hover:-translate-y-0.5 w-full"
                   style={{ boxShadow: "var(--card-shadow)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
                   onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}

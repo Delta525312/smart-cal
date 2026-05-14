@@ -1,10 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseAdmin } from "@/lib/supabase";
+import { isRateLimited, getClientIp } from "@/lib/rateLimit";
 
 // Cache response for 5 minutes to avoid hitting Supabase on every request
 export const revalidate = 300;
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  // 30 requests per minute per IP
+  if (isRateLimited(getClientIp(req), 30, 60_000)) {
+    return NextResponse.json({ totalPageViews: 0, totalCalculations: 0 }, { status: 429 });
+  }
   try {
     const admin = getSupabaseAdmin();
 

@@ -137,9 +137,12 @@ export function HomeContent() {
       </FadeInUp>
 
       {/* ══════════════════════ CALCULATOR GRID ══════════════════════ */}
-      <section id="calculators" className="px-4 pb-12">
+      <section id="calculators" className="px-4 py-14">
         <FadeInUp>
-          <h2 className="text-2xl font-bold mb-6 mt-10">{t("all_tools")}</h2>
+          <div className="mb-8">
+            <h2 className="text-3xl font-extrabold tracking-tight mb-1.5">{t("all_tools")}</h2>
+            <div className="w-10 h-1 rounded-full bg-blue-500" />
+          </div>
         </FadeInUp>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {calculators.map((calc, i) => {
@@ -175,10 +178,10 @@ export function HomeContent() {
       </section>
 
       {/* ══════════════════════ WHY D-CALC ══════════════════════ */}
-      <section className="px-4 pb-12">
-        <FadeInUp className="text-center mb-8">
-          <h2 className="text-2xl font-bold mb-2">{t("why_title")}</h2>
-          <p className="text-sm text-(--muted-foreground)">
+      <section className="px-4 py-14">
+        <FadeInUp className="text-center mb-10">
+          <h2 className="text-3xl font-extrabold tracking-tight mb-2">{t("why_title")}</h2>
+          <p className="text-base text-(--muted-foreground) max-w-sm mx-auto">
             {t("why_subtitle")}
           </p>
         </FadeInUp>
@@ -211,11 +214,14 @@ export function HomeContent() {
       </section>
 
       {/* ══════════════════════ FAQ ══════════════════════ */}
-      <section className="px-4 pb-14">
+      <section className="px-4 pt-4 pb-16">
         <FadeInUp>
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            {t("faq_title")}
-          </h2>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-extrabold tracking-tight mb-2">
+              {t("faq_title")}
+            </h2>
+            <div className="w-10 h-1 rounded-full bg-blue-500 mx-auto" />
+          </div>
         </FadeInUp>
         <div className="space-y-2">
           {faqs.map(({ q, a }, i) => (

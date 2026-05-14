@@ -28,29 +28,23 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ["/admin", "/admin/*", "/api/*", "/{locale}/*", "/icon.png"],
+  exclude: ["/admin", "/admin/*", "/api/*", "/icon.png"],
   robotsTxtOptions: {
     policies: [
       { userAgent: "*", allow: "/", disallow: ["/admin", "/api"] },
     ],
   },
   additionalPaths: async () => {
-    const locales = ["th", "en"];
-    const paths = [];
-    for (const page of pages) {
-      for (const locale of locales) {
-        paths.push({
-          loc: `${siteUrl}/${locale}${page}`,
-          changefreq: "weekly",
-          priority: page === "" ? 1.0 : 0.8,
-          lastmod: new Date().toISOString(),
-          alternateRefs: [
-            { href: `${siteUrl}/th${page}`, hreflang: "th" },
-            { href: `${siteUrl}/en${page}`, hreflang: "en" },
-          ],
-        });
-      }
-    }
-    return paths;
+    return pages.map((page) => ({
+      loc: `${siteUrl}${page}`,
+      changefreq: "weekly",
+      priority: page === "" ? 1.0 : 0.8,
+      lastmod: new Date().toISOString(),
+      alternateRefs: [
+        { href: `${siteUrl}${page}`, hreflang: "th" },
+        { href: `${siteUrl}${page}`, hreflang: "en" },
+        { href: `${siteUrl}${page}`, hreflang: "x-default" },
+      ],
+    }));
   },
 };

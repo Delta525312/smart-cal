@@ -17,24 +17,32 @@ const categoryConfig: {
   id: string;
   labelKey: "calculators" | "converters" | "random";
   icon: LucideIcon;
+  color: string;
+  activeColor: string;
   slugs: string[];
 }[] = [
   {
     id: "calculators",
     labelKey: "calculators",
     icon: Calculator,
+    color: "bg-blue-500",
+    activeColor: "text-blue-600 dark:text-blue-400",
     slugs: ["bmi","age-calculator","loan-calculator","percentage-calculator","calorie-calculator","date-calculator","sleep-calculator","gpa-calculator"],
   },
   {
     id: "converters",
     labelKey: "converters",
     icon: ArrowLeftRight,
+    color: "bg-emerald-500",
+    activeColor: "text-emerald-600 dark:text-emerald-400",
     slugs: ["unit-converter","currency-converter","storage-converter"],
   },
   {
     id: "random",
     labelKey: "random",
     icon: Shuffle,
+    color: "bg-violet-500",
+    activeColor: "text-violet-600 dark:text-violet-400",
     slugs: ["random-number","spin-wheel","card-draw"],
   },
 ];
@@ -57,7 +65,7 @@ export function Sidebar({ onClose, collapsed = false, onToggleCollapse }: Sideba
 
   const recentSlugs = useMemo(() => {
     try {
-      return (JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[]).slice(0, 3);
+      return (JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[]).slice(0, 4);
     } catch {
       return [];
     }
@@ -218,11 +226,11 @@ export function Sidebar({ onClose, collapsed = false, onToggleCollapse }: Sideba
                   "w-full flex items-center gap-2.5 rounded-lg text-sm mb-0.5 px-3 py-2 transition-colors",
                   collapsed && "lg:w-10 lg:mx-auto lg:px-0 lg:py-2.5 lg:justify-center lg:gap-0",
                   hasActive
-                    ? "text-blue-600 dark:text-blue-400 font-medium"
+                    ? cat.activeColor + " font-medium"
                     : "text-foreground hover:bg-(--muted)"
                 )}
               >
-                <span className={cn("flex items-center justify-center w-6 h-6 rounded-md text-white shrink-0", hasActive ? "bg-blue-500" : "bg-slate-400 dark:bg-slate-600")}>
+                <span className={cn("flex items-center justify-center w-6 h-6 rounded-md text-white shrink-0", cat.color)}>
                   <CatIcon size={13} />
                 </span>
                 <span className={cn("flex-1 text-left", collapsed && "lg:hidden")}>{label}</span>

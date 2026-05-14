@@ -66,15 +66,18 @@ export function Sidebar({ onClose, collapsed = false, onToggleCollapse }: Sideba
   const [recentSlugs, setRecentSlugs] = useState<string[]>([]);
 
   useEffect(() => {
-    try {
-      setRecentSlugs(
-        (JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[]).slice(0, 4)
-      );
-    } catch {
-      setRecentSlugs([]);
-    }
-  // re-read whenever the user navigates
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    const readRecent = () => {
+      try {
+        setRecentSlugs(
+          (JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[]).slice(0, 4)
+        );
+      } catch {
+        setRecentSlugs([]);
+      }
+    };
+    readRecent();
+    window.addEventListener("recentCalcsUpdated", readRecent);
+    return () => window.removeEventListener("recentCalcsUpdated", readRecent);
   }, [pathname]);
 
   const filteredCalcs = search.trim()

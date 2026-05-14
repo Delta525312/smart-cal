@@ -51,6 +51,7 @@ export function CalculatorLayout({ title, description, children, icon, color = "
       const stored = JSON.parse(localStorage.getItem("sc_recent_calcs") ?? "[]") as string[];
       const updated = [slug, ...stored.filter((s) => s !== slug)].slice(0, 4);
       localStorage.setItem("sc_recent_calcs", JSON.stringify(updated));
+      window.dispatchEvent(new CustomEvent("recentCalcsUpdated"));
     } catch {}
   }, [slug]);
 

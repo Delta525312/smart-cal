@@ -2,22 +2,9 @@
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dcalcs.com";
 
-const pages = [
+// Static pages (non-calculator)
+const staticPages = [
   "",
-  "/age-calculator",
-  "/bmi",
-  "/calorie-calculator",
-  "/card-draw",
-  "/currency-converter",
-  "/date-calculator",
-  "/gpa-calculator",
-  "/loan-calculator",
-  "/percentage-calculator",
-  "/random-number",
-  "/sleep-calculator",
-  "/spin-wheel",
-  "/storage-converter",
-  "/unit-converter",
   "/about",
   "/contact",
   "/privacy",
@@ -35,7 +22,18 @@ module.exports = {
     ],
   },
   additionalPaths: async () => {
-    return pages.map((page) => ({
+    // Auto-read calculator slugs from app directory — no manual update needed when adding pages
+    const fs = await import("fs");
+    const path = await import("path");
+    const localeDir = path.join(process.cwd(), "src/app/[locale]");
+    const entries = fs.readdirSync(localeDir, { withFileTypes: true });
+    const calcPages = entries
+      .filter((e) => e.isDirectory() && !["admin", "api", "announcements", "patch-notes", "maintenance", "about", "contact", "privacy", "terms"].includes(e.name))
+      .map((e) => `/${e.name}`);
+
+    const allPages = [...staticPages, ...calcPages];
+
+    return allPages.map((page) => ({
       loc: `${siteUrl}${page}`,
       changefreq: "weekly",
       priority: page === "" ? 1.0 : 0.8,

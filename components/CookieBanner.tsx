@@ -21,8 +21,8 @@ export function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:pl-64">
-      <div className="max-w-3xl mx-auto bg-(--card) border border-(--border) rounded-2xl shadow-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
+      <div className="max-w-3xl mx-auto bg-(--card) border border-(--border) rounded-2xl shadow-xl p-4 flex flex-col sm:flex-row items-center gap-4">
         <span className="text-2xl shrink-0">🍪</span>
         <p className="text-sm text-(--muted-foreground) flex-1">
           {tc("cookie_text")}{" "}

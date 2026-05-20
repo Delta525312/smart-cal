@@ -100,7 +100,17 @@ export function BmiCalculator() {
             <div className="h-2.5 bg-(--muted) rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full bg-linear-to-r from-blue-400 via-amber-400 to-red-500 transition-all duration-500"
-                style={{ width: `${Math.min((state.result / 40) * 100, 100)}%` }}
+                style={{
+                  width: `${
+                    state.result < 18.5
+                      ? Math.min((state.result / 18.5) * 25, 25)
+                      : state.result < 25
+                      ? 25 + ((state.result - 18.5) / (25 - 18.5)) * 25
+                      : state.result < 30
+                      ? 50 + ((state.result - 25) / (30 - 25)) * 25
+                      : Math.min(75 + ((state.result - 30) / 10) * 25, 100)
+                  }%`,
+                }}
               />
             </div>
             <div className="flex justify-between text-xs text-(--muted-foreground)">

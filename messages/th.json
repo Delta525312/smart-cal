@@ -79,10 +79,12 @@
     "spin_wheel": "วงล้อสุ่ม",
     "card_draw": "สุ่มการ์ด",
     "storage_converter": "แปลงความจุ",
+    "tier_list": "Tier List",
     "categories": {
       "calculators": "เครื่องคิดเลข",
       "converters": "แปลง",
-      "random": "สุ่ม"
+      "random": "สุ่ม",
+      "tools": "เครื่องมือ"
     }
   },
   "bmi": {
@@ -360,8 +362,9 @@
     "random_number": "สุ่มตัวเลขในช่วงที่กำหนด จำนวนหลายตัวได้",
     "spin_wheel": "วงล้อสุ่มแบบ custom ใส่ตัวเลือกเองได้",
     "card_draw": "สุ่มไพ่จากกองที่กำหนดเอง",
-    "storage_converter": "แปลงหน่วยความจุ Bit, Byte, KB, MB, GB, TB, PB"  },
-  "contact": {
+    "storage_converter": "แปลงหน่วยความจุ Bit, Byte, KB, MB, GB, TB, PB",
+    "tier_list": "จัดอันดับรายการต่างๆ ด้วย Tier List"
+  },
     "page_title": "ติดต่อเรา",
     "page_subtitle": "เรายินดีรับฟังคุณเสมอ",
     "send_message_heading": "ส่งข้อความ",
@@ -393,5 +396,9 @@
     "alert_rate_text": "กรุณารอสักครู่แล้วลองใหม่",
     "alert_error_title": "เกิดข้อผิดพลาด",
     "alert_error_text": "ไม่สามารถส่งข้อควรามได้ กรุณาลองใหม่อีกครั้ง",
-    "alert_retry": "ลองอีกครั้ง"  }
+    "alert_retry": "ลองอีกครั้ง"  },
+  "tier_list": {
+    "title": "Tier List",
+    "description": "จัดอันดับรายการต่างๆ ด้วย Tier List ออนไลน์ฟรี"
+  }
 }

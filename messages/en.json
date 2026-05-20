@@ -79,10 +79,12 @@
     "spin_wheel": "Spin Wheel",
     "card_draw": "Card Draw",
     "storage_converter": "Storage Converter",
+    "tier_list": "Tier List",
     "categories": {
       "calculators": "Calculators",
       "converters": "Converters",
-      "random": "Random"
+      "random": "Random",
+      "tools": "Tools"
     }
   },
   "bmi": {
@@ -360,7 +362,8 @@
     "random_number": "Generate random numbers in any range",
     "spin_wheel": "Custom spin wheel with your own options",
     "card_draw": "Draw random cards from your custom deck",
-    "storage_converter": "Convert storage units: Bit, Byte, KB, MB, GB, TB, PB"
+    "storage_converter": "Convert storage units: Bit, Byte, KB, MB, GB, TB, PB",
+    "tier_list": "Rank and organize items into S, A, B, C, D tiers"
   },
   "contact": {
     "page_title": "Contact Us",
@@ -395,5 +398,9 @@
     "alert_error_title": "Something went wrong",
     "alert_error_text": "Could not send your message. Please try again.",
     "alert_retry": "Try Again"
+  },
+  "tier_list": {
+    "title": "Tier List",
+    "description": "Rank and organize items into tiers with this free online Tier List tool."
   }
 }

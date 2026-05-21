@@ -3,6 +3,8 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api
+Disallow: /*/maintenance
+Disallow: /*/tier-list
 
 # Host
 Host: https://www.dcalcs.com

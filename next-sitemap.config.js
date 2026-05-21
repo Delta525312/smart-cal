@@ -28,7 +28,7 @@ module.exports = {
     const localeDir = path.join(process.cwd(), "src/app/[locale]");
     const entries = fs.readdirSync(localeDir, { withFileTypes: true });
     const calcPages = entries
-      .filter((e) => e.isDirectory() && !["admin", "api", "announcements", "patch-notes", "maintenance", "about", "contact", "privacy", "terms"].includes(e.name))
+      .filter((e) => e.isDirectory() && !["admin", "api", "announcements", "patch-notes", "maintenance", "tier-list", "about", "contact", "privacy", "terms"].includes(e.name))
       .map((e) => `/${e.name}`);
 
     const allPages = [...staticPages, ...calcPages];

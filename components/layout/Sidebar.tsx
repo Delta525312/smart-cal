@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import {
   Home, Info, Mail, ChevronDown, ChevronsLeft, ChevronsRight,
-  Calculator, ArrowLeftRight, Shuffle, Search, Clock, Wrench,
+  Calculator, ArrowLeftRight, Shuffle, Search, Clock,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 const categoryConfig: {
   id: string;
-  labelKey: "calculators" | "converters" | "random" | "tools";
+  labelKey: "calculators" | "converters" | "random";
   icon: LucideIcon;
   color: string;
   activeColor: string;
@@ -44,14 +44,6 @@ const categoryConfig: {
     color: "bg-violet-500",
     activeColor: "text-violet-600 dark:text-violet-400",
     slugs: ["random-number","spin-wheel","card-draw"],
-  },
-  {
-    id: "tools",
-    labelKey: "tools",
-    icon: Wrench,
-    color: "bg-rose-500",
-    activeColor: "text-rose-600 dark:text-rose-400",
-    slugs: ["tier-list"],
   },
 ];
 

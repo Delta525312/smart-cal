@@ -18,7 +18,7 @@ module.exports = {
   exclude: ["/admin", "/admin/*", "/api/*", "/icon.png"],
   robotsTxtOptions: {
     policies: [
-      { userAgent: "*", allow: "/", disallow: ["/admin", "/api"] },
+      { userAgent: "*", allow: "/", disallow: ["/admin", "/api", "/*/maintenance", "/*/tier-list"] },
     ],
   },
   additionalPaths: async () => {

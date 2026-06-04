@@ -20,6 +20,19 @@ export function CalcInfoSection({
   faqTitle,
   faq,
 }: CalcInfoSectionProps) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <div className="mt-8 space-y-4">
       {/* How to Use */}
@@ -55,6 +68,8 @@ export function CalcInfoSection({
           ))}
         </div>
       </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </div>
   );
 }

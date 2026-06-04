@@ -1,4 +1,4 @@
-import { Calculator, Ruler, Scale, Clock, TrendingUp, Percent, Flame, Calendar, Moon, GraduationCap, Hash, RotateCw, Layers, HardDrive, LayoutList } from "lucide-react";
+import { Calculator, Ruler, Scale, Clock, TrendingUp, Percent, Flame, Calendar, Moon, GraduationCap, Hash, RotateCw, Layers, HardDrive } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export interface CalculatorConfig {
@@ -137,14 +137,5 @@ export const calculators: CalculatorConfig[] = [
     descKey: "storage.description",
     cardDescKey: "storage_converter",
     color: "bg-teal-500",
-  },
-  {
-    slug: "tier-list",
-    icon: LayoutList,
-    nameKey: "tier_list",
-    titleKey: "tier_list.title",
-    descKey: "tier_list.description",
-    cardDescKey: "tier_list",
-    color: "bg-rose-500",
   },
 ];
